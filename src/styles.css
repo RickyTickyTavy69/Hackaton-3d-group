@@ -1,4 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: local('Helvetica Neue Roman'), local('Helvetica-Neue-Roman'),
+        url('../HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman.woff2') format('woff2'),
+        url('../HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman.woff') format('woff'),
+        url('../HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
 
 * {
     margin: 0;
@@ -8,17 +17,18 @@
 
 body {
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     height: 100vh;
     width: 100%;
     padding: 2rem;
+    background-color: bisque;
 }
 
 .menu {
     position: fixed;
     z-index: 1000;
-    width: 150px;
-    background: #1b1a1a;
+    width: 200px;
+    background: rgba(244, 164, 96, 0.6);
     border-radius: 5px;
     display: none;
     list-style: none;
@@ -38,5 +48,5 @@ body {
 }
 
 .menu .menu-item:hover {
-    background: #343434;
+    background: rgba(244, 164, 96, 0.8);
 }
