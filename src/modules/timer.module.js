@@ -27,9 +27,12 @@ export class timerModule extends Module {
     }
 
     startTimer(time) {
-        setInterval(() => {
+        const interval = setInterval(() => {
             if (time === 0) {
                 this.finishTimer()
+                clearInterval(interval)
+                
+                
             } else {
                 let current = --time
                 if (current <10) {
@@ -39,16 +42,17 @@ export class timerModule extends Module {
                }
    
         }, 1000)
-
-    }
+   
+    }    
 
     setTime(value) {
         this.#timerArea.textContent = value;
-            }
-
-    finishTimer() {
-        this.#timerContainer.remove()       
-    }
+        }
     
+    finishTimer() {
+            this.#timerContainer.remove() 
+            alert('Time is up')
+            
+        }
 }
 

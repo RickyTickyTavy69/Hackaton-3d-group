@@ -13,7 +13,8 @@ class App {
         const timeNumber = parseInt(timeString);
         const timerHTML = this.#timerModule.render(timeNumber);
         document.body.append(timerHTML);
-        this.#timerModule.startTimer(timeNumber);        
+        this.#timerModule.startTimer(timeNumber);
+                
     }
 }
 
