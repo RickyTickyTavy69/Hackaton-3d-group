@@ -6,16 +6,30 @@ export class AudioModule extends Module {
         super(type, text);
     }
 
+    switchTreck(player, randNum) {
+        player.src = `../audio/gameshow_${randNum}.mp3`;
+        player.play();
+    }
+
     trigger() {
-        // const audioPlayer = document.createElement('audio');
+        this.hide();
+        const bodyHTML = document.querySelector('body');
+        const audioPlayer = document.createElement('audio');
         // audioPlayer.setAttribute('controls', '');
 
-        // const sourceHTML = document.createElement('source');
-        // sourceHTML.src = 'audio/new_message_tone.ogg';
-        // audioPlayer.append(sourceHTML);
-        // sourceHTML.setAttribute('type', 'audio/mp3');
+        const randomNumber = Utils.random(1, 15);
+        const sourceHTML = document.createElement('source');
+        sourceHTML.setAttribute('type', 'audio/mp3');
+        this.switchTreck(audioPlayer, randomNumber);
+        audioPlayer.append(sourceHTML);
+        bodyHTML.append(audioPlayer);
+    }
 
-        // document.body.append(audioPlayer);
+    hide() {
+        const audioHTML = document.querySelector('audio');
+        if (audioHTML) {
+            audioHTML.remove();
+        }
     }
     
     toHTML() {
