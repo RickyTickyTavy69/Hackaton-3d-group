@@ -6,9 +6,18 @@ export class ShapeModule extends Module {
         super(type, text);
     }
 
+    hide() {
+        const shapeHTML = document.querySelector('.shape');
+        if (shapeHTML) {
+            shapeHTML.remove();
+        }
+    }
+
     trigger() {
+        this.hide();
         const params = this.getParams();
         const shape = document.createElement('div');
+        shape.className = 'shape';
         shape.style.height = `${params.shapeHeight}px`;
         shape.style.marginTop = `${params.topMargin}px`;
         shape.style.marginLeft = `${params.leftMargin}px`;
