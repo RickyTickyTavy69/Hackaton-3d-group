@@ -9,7 +9,12 @@ export class ShapeModule extends Module {
     hide() {
         const shapeHTML = document.querySelector('.shape');
         if (shapeHTML) {
-            shapeHTML.remove();
+            shapeHTML.style.opacity = '0';
+            shapeHTML.style.visibility = 'hidden';
+            shapeHTML.style.transition = '2.5s opacity, 2.5s visibility';
+            setTimeout(() => {
+                shapeHTML.remove();
+            }, 3500);
         }
     }
 
@@ -26,6 +31,7 @@ export class ShapeModule extends Module {
         shape.style.marginLeft = `${params.leftMargin}px`;
         shape.style.background = params.shapeColor;
         shape.style.borderRadius = params.borderRadius;
+        shape.style.position = 'absolute';
         document.body.prepend(shape);
     }
 
@@ -64,8 +70,4 @@ export class ShapeModule extends Module {
         const shapeColor = Utils.getRandomColor();
         return {shapeHeight, shapeWidth, topMargin, leftMargin, shapeColor, borderRadius};
     }
-
-    toHTML() {
-        return `<li class="menu-item" data-type="${this.type}">${this.text}</li>`;
-      }
 }
