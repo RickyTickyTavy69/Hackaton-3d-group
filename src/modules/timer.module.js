@@ -1,15 +1,16 @@
 import {Module} from '../core/module'
-export class timerModule extends Module {
+export class TimerModule extends Module {
    #time
    #timerContainer
    #timerArea
     
-   constructor(time) {
-        super('Timer', 'text')
+   constructor(type, text) {
+        super(type, text);
+        this.#timerContainer = document.createElement('div');
+        this.#timerArea = document.createElement('div');
+        this.type = type;
+        this.text = text;
 
-        this.#time = time;
-        this.#timerContainer = document.createElement('div')
-        this.#timerArea = document.createElement('div')
     }
 
     render(time) {
@@ -49,12 +50,21 @@ export class timerModule extends Module {
 
     setTime(value) {
         this.#timerArea.textContent = value;
-        }
+    }
     
     finishTimer() {
             this.#timerContainer.remove() 
             alert('Время вышло')
             
-        }
+    }
+
+    trigger() {
+        const timeString = prompt('Введите время таймера');
+        const timeNumber = parseInt(timeString);
+        const timerHTML = this.render(timeNumber);
+        document.body.append(timerHTML);
+        this.startTimer(timeNumber);
+
+    }
 }
 
