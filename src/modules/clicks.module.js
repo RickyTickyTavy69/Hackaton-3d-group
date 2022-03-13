@@ -28,7 +28,7 @@ export class ClicksModule extends Module {
 
 function createElement(time) {
     const span = document.createElement('span')
-    span.className = 'timer'
+    span.className = 'click-count'
     span.setAttribute('data-time', `${time}`)
     span.textContent = '00'
     body.append(span)
