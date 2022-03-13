@@ -11,6 +11,7 @@ class App {
     run() {
         const timeString = prompt('Введите время таймера')
         const timeNumber = parseInt(timeString);
+        
         const timerHTML = this.#timerModule.render(timeNumber);
         document.body.append(timerHTML);
         this.#timerModule.startTimer(timeNumber);

@@ -16,7 +16,9 @@ export class timerModule extends Module {
 
         this.#timerContainer.id = 'timer';
         this.#timerContainer.className = 'board';
-
+        if (time <10) {
+            time = `0${time}` 
+           }
         this.#timerArea.textContent = time;
         this.#timerArea.className = 'timer';
 
@@ -51,7 +53,7 @@ export class timerModule extends Module {
     
     finishTimer() {
             this.#timerContainer.remove() 
-            alert('Time is up')
+            alert('Время вышло')
             
         }
 }
