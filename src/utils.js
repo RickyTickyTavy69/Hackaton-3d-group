@@ -1,3 +1,5 @@
+import * as setting from './core/constants/setting'
+
 export function random(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1))
 }
@@ -9,7 +11,7 @@ export function getRandomColor() {
     color += letters[Math.floor(Math.random() * 16)]; 
   } 
   return color; 
-import * as setting from './core/constants/setting'
+}
 
 
 export function createElement(time) {
