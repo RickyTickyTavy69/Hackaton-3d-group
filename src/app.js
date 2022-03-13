@@ -11,12 +11,12 @@ import { ClicksModule } from './modules/clicks.module';
 import { EmailModule } from './modules/email.module';
  
 
-let backgroundModule = new BackgroundModule('background', 'change color');
-let timerModule = new TimerModule('timer', 'set timer');
-let shapeModule = new ShapeModule('shape', 'add ramdom shape');
-let audioModule = new AudioModule('audio', 'make a sound');
-let clicksModule = new ClicksModule('clicks', 'start click counter');
-let emailmodule = new EmailModule('email', 'send an Email');
+let backgroundModule = new BackgroundModule('background', 'поменять цвет');
+let timerModule = new TimerModule('timer', 'таймер');
+let shapeModule = new ShapeModule('shape', 'добавить фигуру');
+let audioModule = new AudioModule('audio', 'рандомный звук');
+let clicksModule = new ClicksModule('clicks', 'считать клики');
+let emailmodule = new EmailModule('email', 'отправить Емэйл');
 
 
 siteMenu.add(backgroundModule);
@@ -28,38 +28,37 @@ siteMenu.add(clicksModule);
 
 siteMenu.el.addEventListener('click', (event) => {
 
+    shapeModule.hide();
+
     switch (event.target.dataset.type) {
         case 'background':
-        backgroundModule.trigger();
         siteMenu.close();
+        backgroundModule.trigger();
         break;
 
         case 'timer':
-            timerModule.trigger();
-            siteMenu.close();
+        siteMenu.close();
+        timerModule.trigger();
         break;
-        
         
         case 'shape':
-            shapeModule.trigger();
-            siteMenu.close();
+        siteMenu.close();
+        shapeModule.trigger();
         break;
-        
         
         case 'audio':
-            audioModule.trigger();
-            siteMenu.close();
+        siteMenu.close();
+        audioModule.trigger();
         break;
         
-        
         case 'clicks':
-            clicksModule.trigger();
-            siteMenu.close();
+        siteMenu.close();
+        clicksModule.trigger();
         break;
 
         case 'email':
-            emailmodule.trigger();
-            siteMenu.close();
+        siteMenu.close();
+        emailmodule.trigger();
         break;
 
     } 

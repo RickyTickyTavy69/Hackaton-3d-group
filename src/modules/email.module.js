@@ -39,10 +39,6 @@ export class EmailModule extends Module{
 
     }
 
-    close(){
-        modal.innerHTML = "";
-    }
-
     trigger(){
         let modal = EmailModule.createModal();
         document.body.appendChild(modal);
@@ -50,7 +46,11 @@ export class EmailModule extends Module{
         let emailInput = document.querySelector('.emailInput');
         let messageInput = document.querySelector('.messageInput');
         let dataSubmitBtn = document.querySelector('.dataSubmitBtn');
-        
+        let closeButton = document.querySelector('.modal-close');
+
+        closeButton.addEventListener( 'click', () => {
+          modal.innerHTML = "";
+        })
 
         dataSubmitBtn.addEventListener('click', () => {
             let email = emailInput.value;

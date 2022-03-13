@@ -16,7 +16,7 @@ export class ClicksModule extends Module {
   }
   trigger() {
     const spanTime = document.querySelector('.click-count')
-    const second = prompt('Введите время под счета кликов. Число:').trim()
+    const second = (prompt('Введите время под счета кликов. Число:')).trim()
     if (isNaN(second)) {
       alert('Input error is not a number')
     } else {
