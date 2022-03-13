@@ -15,38 +15,54 @@ export class ShapeModule extends Module {
 
     trigger() {
         this.hide();
-        const params = this.getParams();
+        const shapes = ['квадрат', 'круг', 'прямоугольник'];
+        const randomShapeName = shapes[Utils.random(0, shapes.length - 1)];
+        const params = this.getParams(randomShapeName);
         const shape = document.createElement('div');
         shape.className = 'shape';
         shape.style.height = `${params.shapeHeight}px`;
+        shape.style.width = `${params.shapeWidth}px`;
         shape.style.marginTop = `${params.topMargin}px`;
         shape.style.marginLeft = `${params.leftMargin}px`;
         shape.style.background = params.shapeColor;
-
-        const shapes = ['квадрат', 'круг', 'прямоугольник'];
-        const randomNumber = Utils.random(0, shapes.length - 1);
-        
-        const randomShapeName = shapes[randomNumber];
-        if (randomShapeName === 'квадрат') {
-            shape.style.width = `${params.shapeHeight}px`;
-        } else  if (randomShapeName === 'круг') {
-            shape.style.width = `${params.shapeHeight}px`;
-            shape.style.borderRadius = '50%';
-        } else if (randomShapeName === 'прямоугольник') {
-            shape.style.width = `${params.shapeWidth}px`;
-        }
+        shape.style.borderRadius = params.borderRadius;
         document.body.prepend(shape);
     }
 
-    getParams() {
-        const bodyHeight = document.documentElement.clientHeight;
-        const bodyWidth = document.documentElement.clientWidth;
-        const shapeHeight = Utils.random(10, bodyHeight);
-        const shapeWidth = Utils.random(10, bodyWidth);
-        const topMargin = Utils.random(0, bodyHeight - shapeHeight - 64);
-        const leftMargin = Utils.random(0, bodyWidth - shapeWidth - 64);
+    getParams(shapeForm) {
+        const bodyHTML = document.querySelector('body');
+        const bodyPadding = 64;
+        const bodyHeight = bodyHTML.clientHeight - bodyPadding;
+        const bodyWidth = bodyHTML.clientWidth - bodyPadding;
+        let shapeHeight;
+        let shapeWidth;
+        let topMargin;
+        let leftMargin;
+        let borderRadius;
+        if (shapeForm === 'квадрат' || shapeForm === 'круг') {
+
+            if (bodyHeight < bodyWidth) {
+                shapeHeight = Utils.random(10, bodyHeight);
+                shapeWidth = shapeHeight;
+            } else {
+                shapeWidth = Utils.random(10, bodyWidth);
+                shapeHeight = shapeWidth;
+            }
+
+            if (shapeForm === 'круг') {
+                borderRadius = '50%';
+            }
+
+            topMargin = Utils.random(0, bodyHeight - shapeHeight);
+            leftMargin = Utils.random(0, bodyWidth - shapeWidth);
+        } else if (shapeForm === 'прямоугольник') {
+            shapeHeight = Utils.random(10, bodyHeight);
+            shapeWidth = Utils.random(10, bodyWidth);
+            topMargin = Utils.random(0, bodyHeight - shapeHeight);
+            leftMargin = Utils.random(0, bodyWidth - shapeWidth);
+        }
         const shapeColor = Utils.getRandomColor();
-        return {shapeHeight, shapeWidth, topMargin, leftMargin, shapeColor};
+        return {shapeHeight, shapeWidth, topMargin, leftMargin, shapeColor, borderRadius};
     }
 
     toHTML() {
