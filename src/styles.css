@@ -41,7 +41,8 @@ body {
 .menu .menu-item {
     padding: 8px 10px;
     font-size: 1rem;
-    color: #eee;
+    color: rgb(73, 4, 4);
+    font-weight: bold;
     cursor: pointer;
     transition: background-color .2s ease-in;
     border-radius: inherit;
@@ -49,4 +50,176 @@ body {
 
 .menu .menu-item:hover {
     background: rgba(244, 164, 96, 0.8);
+}
+
+/*==============================================================================================================================================*/
+/* из модуля таймер */
+
+@import url('https://fonts.googleapis.com/css?family=Khula&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+
+h1 {
+  line-height: 1.4;
+  font-size: 4rem;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  transition: margin 0.5s ease-out;
+  background: linear-gradient(90deg, #29323C 0%, #485563 100%);
+}
+
+.screen.up {
+  margin-top: -100vh;
+}
+
+
+
+.hide {
+  opacity: 0;
+}
+
+.timer {
+  color: #16D9E3;
+  font-size: 1.5rem;
+  text-align: center;
+
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(118.38deg, #29323C -4.6%, #485563 200.44%);
+  box-shadow: -8px -8px 20px #2A333D, 10px 7px 20px #475462;
+  border-radius: 30px;
+  overflow: hidden;
+   position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+ }
+
+
+ /*=====================================================================================================*/
+ /* таймер кликов */
+ /*====================================================================================================*/
+
+.click-count{
+  border: #343434 solid 2px;
+  box-shadow: 2px 3px #343434;
+  margin: 10px;
+  color: darkslategrey;
+  width: 100px;
+  height: 100px;
+  font-size: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+/*========================================================================================================*/
+/* модальное окно */
+/*============================================================================================================*/
+
+.modal-overlay{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mailer-overlay{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-window{
+  width: 600px;
+  border-radius: 5px;
+  background: #fff;
+  margin: 100px auto;
+}
+
+.emailInput{
+  padding: 0.2rem;
+  font-size: 1.3rem;
+}
+
+.messageInput{
+  padding: 0.2rem;
+  font-size: 1.3rem;
+}
+
+.mailer-window{
+  width: 20%;
+  border-radius: 5px;
+  background: #fff;
+  margin: 20rem auto;
+  padding: 0.8rem 0 0.8rem 0;
+  display:flex;
+  justify-content: space-around;
+}
+
+
+.modal-header{
+  padding: 5px 10px 1rem 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid orange;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+}
+
+.modal-close{
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 10px;
+}
+
+.sendForm{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.modal-footer{
+  padding: 0.5rem;
+  border-top: 1px solid orange;
+  display: flex;
+  justify-content: space-around;
+}
+
+.dataSubmitBtn{
+  padding: 0.2rem;
+}
+
+.sendButton{
+  padding: 0.3rem;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border: 3px solid orange;
 }
