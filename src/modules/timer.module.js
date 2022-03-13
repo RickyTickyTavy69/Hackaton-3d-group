@@ -3,6 +3,7 @@ export class TimerModule extends Module {
    #time
    #timerContainer
    #timerArea
+
     
    constructor(type, text) {
         super(type, text);
@@ -10,6 +11,7 @@ export class TimerModule extends Module {
         this.#timerArea = document.createElement('div');
         this.type = type;
         this.text = text;
+        this.start = 0;
 
     }
 
@@ -59,18 +61,21 @@ export class TimerModule extends Module {
     }
 
     trigger() {
+     if (this.start === 0) {
         const timeString = prompt('Введите время таймера');
-
-            const timeNumber = parseInt(timeString)
-            const testInput = isNaN(timeNumber);
+        const timeNumber = parseInt(timeString)
+        const testInput = isNaN(timeNumber);
             if (!testInput) {
-            const timerHTML = this.render(timeNumber);
-            document.body.append(timerHTML);
-            this.startTimer(timeNumber);
-            } else {
-                alert('Вы не ввели время таймера')
-            }
-    }
+                const timerHTML = this.render(timeNumber);
+                this.start = 1;
+                document.body.append(timerHTML);
+                this.startTimer(timeNumber);
+                    } else {
+                        alert('Вы не ввели время таймера')
+                    }
+
+          }  
+     }
 }
 
 
