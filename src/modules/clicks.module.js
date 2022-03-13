@@ -20,12 +20,12 @@ export class ClicksModule extends Module {
     if (isNaN(second)) {
       alert('Input error is not a number')
     } else {
-      timeOne = second
       document.addEventListener('click', clickOut)
       document.addEventListener('dblclick', dblClickOut)
       if (spanTime) {
         alert('Таймер уже запушен.')
       } else {
+        timeOne = second
         createElement(timeOne)
       }
     }
