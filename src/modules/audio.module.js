@@ -29,8 +29,4 @@ export class AudioModule extends Module {
             audioHTML.remove();
         }
     }
-    
-    toHTML() {
-        return `<li class="menu-item" data-type="${this.type}">${this.text}</li>`;
-    }
 }
