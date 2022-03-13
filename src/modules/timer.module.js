@@ -61,13 +61,16 @@ export class TimerModule extends Module {
     }
 
     trigger() {
+        console.log(this.start)
      if (this.start === 0) {
         const timeString = prompt('Введите время таймера');
         const timeNumber = parseInt(timeString)
         const testInput = isNaN(timeNumber);
             if (!testInput) {
-                const timerHTML = this.render(timeNumber);
                 this.start = 1;
+                
+                const timerHTML = this.render(timeNumber);
+                
                 document.body.append(timerHTML);
                 this.startTimer(timeNumber);
                     } else {
